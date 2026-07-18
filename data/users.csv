@@ -1,0 +1,22 @@
+EmployeeID,FirstName,LastName,Department,JobTitle,ManagerEmployeeID,RemoteWorker,VPNAccess,PrinterAccess
+MW001,Emma,Wilson,HR,HR Manager,,No,No,Yes
+MW002,Olivia,Martin,HR,HR Coordinator,MW001,No,No,Yes
+MW003,Liam,Thompson,HR,Recruiter,MW001,Yes,Yes,Yes
+MW004,Sophia,Garcia,HR,HR Assistant,MW001,No,No,Yes
+MW005,David,Chen,Finance,Financial Analyst,MW006,No,No,Yes
+MW006,Ava,Robinson,Finance,Finance Manager,,No,No,Yes
+MW007,Noah,Anderson,Finance,Accounts Specialist,MW006,Yes,Yes,Yes
+MW008,Mia,Lewis,Finance,Payroll Administrator,MW006,No,No,Yes
+MW009,Sarah,Patel,Sales,Sales Representative,MW010,No,No,Yes
+MW010,Ethan,Walker,Sales,Sales Manager,,No,No,Yes
+MW011,Isabella,Hall,Sales,Account Executive,MW010,Yes,Yes,Yes
+MW012,Lucas,Young,Sales,Sales Representative,MW010,No,No,Yes
+MW013,Amelia,King,Sales,Sales Coordinator,MW010,No,No,Yes
+MW014,James,Wright,Sales,Account Executive,MW010,No,No,Yes
+MW015,Michael,Brown,Operations,Operations Manager,,No,No,Yes
+MW016,Charlotte,Scott,Operations,Office Administrator,MW015,No,No,Yes
+MW017,Benjamin,Green,Operations,Project Coordinator,MW015,No,No,Yes
+MW018,Harper,Adams,Operations,Operations Specialist,MW015,No,No,Yes
+MW019,Henry,Baker,Operations,Facilities Coordinator,MW015,No,No,Yes
+MW020,Evelyn,Nelson,Operations,Executive Assistant,MW015,No,No,Yes
+

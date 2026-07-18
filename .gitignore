@@ -1,0 +1,32 @@
+# Secrets and local configuration
+*.key
+*.pfx
+*.p12
+*.cer
+*.crt
+*.rdp
+*.env
+secrets/
+credentials/
+
+# VM and disk files
+*.vmdk
+*.vdi
+*.vhd
+*.vhdx
+*.vmem
+*.vmss
+*.vmsn
+*.nvram
+*.iso
+
+# Raw/unreviewed evidence
+evidence/raw/
+evidence/**/unredacted/
+
+# OS/editor noise
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vscode/
+
