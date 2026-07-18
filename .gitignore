@@ -23,10 +23,13 @@ credentials/
 # Raw/unreviewed evidence
 evidence/raw/
 evidence/**/unredacted/
+portfolio-updates/screenshots/inbox/
+
+# Document rendering workspace
+.docx-work/
 
 # OS/editor noise
 Thumbs.db
 Desktop.ini
 .DS_Store
 .vscode/
-

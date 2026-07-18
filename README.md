@@ -4,7 +4,7 @@ A hands-on portfolio project designed for Junior IT Support, Service Desk, and M
 
 ## Current Status
 
-**Phase 1 is in progress. DC01, the Forest and Domain, internal DNS, and the server-side DHCP configuration have been completed and command-validated. OUs, users, groups, and Windows 11 clients are still pending. Last updated: 2026-07-18.**
+**Phase 1 is in progress. DC01, the Forest and Domain, internal DNS, DHCP, the custom OU hierarchy, 10 Global Security groups, the separate named administrative account, and 20 fictional users have been completed and validated. Windows 11 clients are still pending. Last updated: 2026-07-18.**
 
 This repository clearly separates planned work from verified results:
 
@@ -35,7 +35,9 @@ Planned work is never presented as a resume achievement before it has been valid
 
 See [PROJECT-PLAN.md](PROJECT-PLAN.md) for the complete roadmap. The current implementation guide is [phase-1-runbook.md](active-directory/phase-1-runbook.md).
 
-See [progress/CURRENT-STATUS.md](progress/CURRENT-STATUS.md) for the current state and [progress/2026-07-18-progress-log.md](progress/2026-07-18-progress-log.md) for the latest dated record.
+See [progress/CURRENT-STATUS.md](progress/CURRENT-STATUS.md) for the current state, [progress/2026-07-18-progress-log.md](progress/2026-07-18-progress-log.md) for the full dated record, and [progress/2026-07-18-identity-provisioning-milestone.md](progress/2026-07-18-identity-provisioning-milestone.md) for the validated 20-user identity milestone.
+
+Use [PROJECT-TODO.md](PROJECT-TODO.md) as the primary progress monitor. It shows completed work with checked and struck-through items, the current focus, and all 30 planned support cases.
 
 ## Repository Structure
 
@@ -50,7 +52,7 @@ See [progress/CURRENT-STATUS.md](progress/CURRENT-STATUS.md) for the current sta
 - `final-report/`: Final report source files and exported deliverables
 - `progress/`: Current status and dated implementation logs
 - `cases/`: Records, screenshot selections, and LinkedIn material for each troubleshooting case
-- `linkedin/`: Draft milestone updates for LinkedIn
+- `portfolio-updates/`: Local screenshot intake, publication decisions, and date-ordered Word documents for GitHub and LinkedIn updates
 
 ## Security and Privacy
 

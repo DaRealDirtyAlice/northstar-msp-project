@@ -23,7 +23,7 @@ Fill this in during implementation.
 - [x] Confirm virtualization is enabled and the Hypervisor can start one test VM.
 - [x] Confirm the proposed subnet does not overlap the host, VPN, or current HomeLab.
 - [x] Create an isolated host-only lab network. Do not bridge a lab DHCP server onto the household or office LAN.
-- [ ] Take a clean snapshot/checkpoint after OS installation and before role installation.
+- [x] Take a clean pre-change snapshot/checkpoint before the 20-user import.
 - [ ] Create an `evidence/phase-1/` folder for sanitized screenshots and command outputs.
 
 ### VMware network plan
@@ -64,9 +64,9 @@ Result reported 2026-07-18: required AD and authentication services, Forest/Doma
 
 ## Step 4 — Create OU and groups
 
-- [ ] Follow `ou-structure.md` exactly.
-- [ ] Create all groups in `group-design.md`.
-- [ ] Create a separate lab admin account for administrative work.
+- [x] Follow `ou-structure.md` exactly.
+- [x] Create all groups in `group-design.md`.
+- [x] Create a separate lab admin account for administrative work.
 - [ ] Keep the daily user account out of privileged groups.
 - [ ] Export the OU and group lists as evidence.
 
@@ -79,14 +79,14 @@ Get-ADGroup -Filter 'Name -like "GG_*"' | Select-Object Name,GroupScope,GroupCat
 
 ## Step 5 — Create 20 virtual users
 
-- [ ] Use `data/users.csv` as the source of truth.
-- [ ] Generate a unique username using a documented convention such as first initial + last name.
-- [ ] Handle collisions explicitly; do not silently overwrite an account.
-- [ ] Set a temporary password interactively, not in CSV.
-- [ ] Require password change at next sign-in.
-- [ ] Place each user in the correct department OU and group.
-- [ ] Add only approved remote workers to `GG_VPN_Users`.
-- [ ] Export a user-to-group validation report.
+- [x] Use `data/users.csv` as the source of truth.
+- [x] Generate a unique username using the documented first-initial-plus-last-name convention.
+- [x] Handle collisions explicitly; the preflight reported zero duplicates and zero existing-account conflicts.
+- [x] Set a temporary password interactively, not in CSV.
+- [x] Require password change at next sign-in.
+- [x] Place each user in the correct department OU and group.
+- [x] Add only approved remote workers to `GG_VPN_Users`.
+- [x] Export a sanitized user-to-group validation report to `evidence/phase-1/`.
 
 ## Step 6 — Configure DHCP
 

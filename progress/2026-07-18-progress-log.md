@@ -17,6 +17,15 @@ The Northstar MSP lab moved from project preparation into an operational Phase 1
 9. Authorized DHCP in Active Directory.
 10. Created and activated the `Northstar-Employees` IPv4 scope.
 11. Configured internal DNS and domain-suffix DHCP options without a default gateway.
+12. Built and validated the custom Northstar OU hierarchy and 10 Global Security groups.
+13. Created the named `ns-admin` administrative account and validated effective Domain Admins privileges through an elevated token.
+14. Validated a 20-record fictional user dataset, including zero duplicate usernames, zero existing-account conflicts, and valid manager references.
+15. Rehearsed the user import with `New-ADUser -WhatIf` before making directory changes.
+16. Created 20 fictional AD users across HR, Finance, Sales, and Operations.
+17. Diagnosed and repaired a disabled-account condition by applying a compliant temporary password, enabling all accounts, and preserving the first-logon password-change requirement.
+18. Assigned and validated 16 employee-to-manager relationships, leaving four department managers as top-level users.
+19. Applied 47 memberships across 10 Global Security groups and validated 47 expected versus 47 actual memberships with zero missing or unexpected assignments.
+20. Exported a sanitized 20-row user-to-group validation report for repository evidence.
 
 ## Concepts learned
 
@@ -28,6 +37,10 @@ The Northstar MSP lab moved from project preparation into an operational Phase 1
 - An OU is a container and a management scope for Group Policy and delegated administration.
 - A security group controls resource access; OU placement alone does not grant file permissions.
 - An AD client locates Domain Controllers through DNS SRV records rather than a manually entered DC address.
+- A safe automation workflow uses source-data validation, collision checks, `-WhatIf`, controlled writes, and fresh post-change queries.
+- A successful command message is not sufficient evidence; the final directory state must be queried independently.
+- Manager attributes represent reporting relationships, while security groups carry access intent.
+- Idempotent checks make a bulk script safe to rerun without creating duplicate accounts or memberships.
 
 ## Troubleshooting lessons
 
@@ -47,13 +60,19 @@ The Northstar MSP lab moved from project preparation into an operational Phase 1
 
 These are bootstrap lessons, not yet counted among the planned 30 end-user service-desk cases.
 
+### Bulk-created accounts were disabled
+
+- Symptom: all 20 user objects existed with correct profile fields, but `EnabledUsers` returned zero.
+- Working cause: the password supplied during creation was unavailable or did not satisfy the domain password policy, so Active Directory retained the objects in a disabled state.
+- Action: entered a compliant temporary password as a SecureString, reset each account password, enabled each account, and reapplied the first-logon password-change requirement.
+- Result: fresh AD queries returned 20 total users, 20 enabled users, zero disabled users, and 20 users required to change their password at next sign-in.
+
 ## Current limitations
 
 - No Windows 11 client has been deployed, so DHCP DORA and Domain Join are not yet proven end to end.
-- OU, group and user designs exist in documentation but have not yet been implemented.
+- No Windows 11 endpoint has joined the domain, so user sign-in and Group Policy processing are not yet proven from a client.
 - Internet-dependent activation, updates and Microsoft 365 work remain deferred.
 
 ## Next session
 
 Create `WIN11-HR01` on VMnet3 and observe whether it receives the intended DHCP address, DNS server and domain suffix before attempting Domain Join.
-

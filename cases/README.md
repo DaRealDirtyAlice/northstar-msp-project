@@ -26,6 +26,8 @@ cases/
 
 Use [CASE-TEMPLATE.md](CASE-TEMPLATE.md) for every new Case.
 
+The master completion monitor is [../PROJECT-TODO.md](../PROJECT-TODO.md). When a Case passes validation, change its checkbox to `[x]`, strike through the full Case line, update the completed and remaining counts, and identify the next active Case.
+
 ## Screenshot workflow
 
 When a screenshot is sent in the project conversation, evaluate it as one of:
@@ -36,4 +38,3 @@ When a screenshot is sent in the project conversation, evaluate it as one of:
 - `Rejected`: incorrect configuration, duplicated evidence, weak proof or sensitive content
 
 Never treat a configuration screenshot as proof of success when a command or functional test is required.
-

@@ -20,6 +20,13 @@ Overall status: **Phase 1 — In Progress**
 - DHCP authorized in Active Directory.
 - Active DHCP scope configured for `10.50.10.100–10.50.10.199`.
 - Scope options configured for internal DNS and the `corp.northstar.test` suffix; no Phase 1 router option.
+- Custom Northstar OU hierarchy created and visually validated.
+- Ten designed groups created and command-validated as Global Security groups.
+- Separate named administrative account `ns-admin` created, added to Domain Admins, and validated with both filtered and elevated sign-in tokens.
+- Pre-import user dataset, target OUs, security groups, name conflicts, and `New-ADUser -WhatIf` results validated; a powered-off VM snapshot was taken before the real import.
+- Twenty fictional AD user objects created in the correct department OUs, repaired after a disabled-account password issue, and freshly validated as 20 enabled accounts with first-logon password change required.
+- Sixteen employee-to-manager relationships assigned and freshly validated, leaving four department managers as the intended top-level users.
+- Forty-seven security-group memberships applied across 10 groups and independently validated with zero missing or unexpected assignments.
 
 ## Completed with evidence still needed
 
@@ -32,7 +39,7 @@ User confirmation and command results support the current status. Public-ready s
 
 ## Next milestone
 
-Deploy `WIN11-HR01` using Windows 11 Enterprise Evaluation and validate the complete service chain:
+Deploy `WIN11-HR01` and validate the complete service chain:
 
 ```text
 DHCP lease -> internal DNS -> Domain Controller discovery -> Domain Join -> Domain sign-in
@@ -44,12 +51,9 @@ DHCP lease -> internal DNS -> Domain Controller discovery -> Domain Join -> Doma
 - Create `WIN11-HR01` on VMnet3.
 - Validate DHCP lease, DNS server and AD SRV discovery from the client.
 - Join `WIN11-HR01` to `corp.northstar.test`.
-- Create the designed OU and security-group structure.
-- Import the 20 fictional users.
 - Add `WIN11-SALES01` and `WIN11-REMOTE01`.
 - Complete all Phase 1 acceptance tests.
 
 ## Evidence rule
 
 Only mark an item `Validated` when a repeatable test was performed. A screenshot is publication evidence, not a substitute for technical validation.
-

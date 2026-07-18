@@ -49,8 +49,8 @@
 - [x] Create the `corp.northstar.test` Forest and Domain.
 - [x] Validate AD, Kerberos, Netlogon, and DNS A/SRV records.
 - [x] Authorize DHCP and activate the `10.50.10.100-10.50.10.199` address pool.
-- [ ] Create OUs and security groups.
-- [ ] Import 20 fictional users.
+- [x] Create OUs and security groups.
+- [x] Import 20 fictional users.
 - [ ] Successfully join at least one Windows 11 client to the domain.
 - [ ] Complete final acceptance testing on three Windows 11 clients.
 

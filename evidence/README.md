@@ -13,7 +13,6 @@ evidence/
 └── linkedin/
 ```
 
-Use [screenshot-register.md](screenshot-register.md) to record every screenshot decision. Raw attachments are not automatically portfolio evidence.
+Use [screenshot-register.md](screenshot-register.md) to reach the active publication-decision register. Raw attachments are not automatically portfolio evidence.
 
 Do not commit secrets, recovery keys, access tokens, real personal information or unredacted screenshots.
-
