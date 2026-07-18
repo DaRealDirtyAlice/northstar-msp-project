@@ -1,107 +1,107 @@
-# 项目执行计划
+# Project Execution Plan
 
-## 核心原则
+## Core Principles
 
-- 时间分配目标：70% 用户与工单、20% 基础设施、10% 安全监控。
-- 先形成最小可运行环境，再增加功能。
-- 每个故障都从工单开始，不“看到问题就直接修”。
-- 每项成果必须同时具备实施记录、验证结果和脱敏证据。
-- Wazuh 仅作为端点可见性和升级依据，不把本项目变成渗透测试实验。
+- Target effort allocation: 70% users and tickets, 20% infrastructure, and 10% security monitoring.
+- Build the smallest usable environment before adding features.
+- Begin every fault with a ticket instead of fixing an observed problem without documenting it.
+- Every outcome must include an implementation record, validation result, and sanitized evidence.
+- Use Wazuh only for endpoint visibility and escalation evidence; do not turn this project into a penetration-testing lab.
 
-## 资源分级
+## Resource Tiers
 
-### 最小开工配置
+### Minimum Starting Configuration
 
-- `DC01`：2 vCPU、4 GB RAM、60 GB 磁盘
-- `WIN11-HR01`：2 vCPU、4 GB RAM、64 GB 磁盘
-- 两台虚拟机先跑通 AD、DNS、DHCP 和入域流程
+- `DC01`: 2 vCPU, 4 GB RAM, 60 GB disk
+- `WIN11-HR01`: 2 vCPU, 4 GB RAM, 64 GB disk
+- Use these two virtual machines to validate AD, DNS, DHCP, and domain join first.
 
-### 第一阶段完整验收配置
+### Full Phase 1 Acceptance Configuration
 
-- 增加 `WIN11-SALES01` 与 `WIN11-REMOTE01`
-- 内存不足时不要四台同时运行；逐台入域和验证即可
+- Add `WIN11-SALES01` and `WIN11-REMOTE01`.
+- If memory is limited, do not run all four VMs simultaneously. Join and validate each client individually.
 
-### 后续阶段
+### Later Phases
 
-- `FS01`：2 vCPU、4 GB RAM、80 GB 以上磁盘
-- `HELPDESK01`：按选定工单系统调整
-- `WAZUH01`：优先复用现有环境
-- `FW01`：只在基础工单流程成熟后增加
+- `FS01`: 2 vCPU, 4 GB RAM, at least 80 GB disk
+- `HELPDESK01`: Adjust resources for the selected ticketing platform
+- `WAZUH01`: Reuse the existing environment where practical
+- `FW01`: Add only after the foundational ticket workflow is mature
 
-## 阶段与闸门
+## Phases and Gates
 
-### 阶段 0：准备（已完成主要准备）
+### Phase 0: Preparation (Major Preparation Complete)
 
-- [x] 建立作品集目录
-- [x] 固定业务场景与命名
-- [x] 建立 IP、OU、组和用户设计
-- [x] 建立证据和工单模板
-- [x] 确认 VMware Workstation 与 Windows Server 2022 安装介质
-- [ ] 确认可用 RAM 与 Windows 11 Enterprise 安装介质
-- [x] 为虚拟网络选择 `10.50.10.0/24`
+- [x] Create the portfolio directory.
+- [x] Define the business scenario and naming conventions.
+- [x] Design the IP plan, OUs, groups, and users.
+- [x] Create evidence and ticket templates.
+- [x] Confirm VMware Workstation and Windows Server 2022 installation media.
+- [ ] Confirm available RAM and Windows 11 Enterprise installation media.
+- [x] Select `10.50.10.0/24` for the virtual network.
 
-### 阶段 1：身份与基础网络
+### Phase 1: Identity and Foundational Networking
 
-- [x] 创建隔离的 VMnet3 实验网络
-- [x] 部署并重命名 `DC01`
-- [x] 配置静态 IP `10.50.10.10/24`
-- [x] 安装 AD DS、DNS、DHCP
-- [x] 创建 `corp.northstar.test` Forest 与 Domain
-- [x] 验证 AD、Kerberos、Netlogon、DNS A/SRV 记录
-- [x] 授权 DHCP 并激活 `10.50.10.100–10.50.10.199` 地址池
-- [ ] 创建 OU 和安全组
-- [ ] 导入 20 个虚拟用户
-- [ ] 至少一台 Windows 11 成功入域
-- [ ] 三台 Windows 11 完成最终验收
+- [x] Create the isolated VMnet3 lab network.
+- [x] Deploy and rename `DC01`.
+- [x] Configure the static IP address `10.50.10.10/24`.
+- [x] Install AD DS, DNS, and DHCP.
+- [x] Create the `corp.northstar.test` Forest and Domain.
+- [x] Validate AD, Kerberos, Netlogon, and DNS A/SRV records.
+- [x] Authorize DHCP and activate the `10.50.10.100-10.50.10.199` address pool.
+- [ ] Create OUs and security groups.
+- [ ] Import 20 fictional users.
+- [ ] Successfully join at least one Windows 11 client to the domain.
+- [ ] Complete final acceptance testing on three Windows 11 clients.
 
-闸门：DNS 正常、DHCP 正常、三个客户端可用域账号登录、对象位于正确 OU。
+Gate: DNS and DHCP operate correctly, three clients can sign in with domain accounts, and objects are located in the correct OUs.
 
-### 阶段 2：文件、GPO 与终端
+### Phase 2: Files, GPOs, and Endpoints
 
-- [ ] 部署 `FS01`
-- [ ] 创建部门共享和 Public 共享
-- [ ] 以安全组实施权限，不直接授权个人
-- [ ] 配置驱动器映射和基础 GPO
-- [ ] 完成 Windows 11 标准化基线
-- [ ] 完成权限、GPO、打印机和恢复类工单
+- [ ] Deploy `FS01`.
+- [ ] Create departmental and Public shares.
+- [ ] Assign permissions through security groups instead of directly to individual users.
+- [ ] Configure drive mapping and foundational GPOs.
+- [ ] Complete the Windows 11 standardization baseline.
+- [ ] Complete permissions, GPO, printer, and recovery tickets.
 
-闸门：跨部门访问被阻止；授权用户具备正确读写能力；驱动器自动映射；普通用户无本地管理员权限。
+Gate: Cross-department access is blocked, authorized users have the correct read/write access, drives map automatically, and standard users have no local administrator rights.
 
-### 阶段 3：Service Desk
+### Phase 3: Service Desk
 
-- [ ] 选择并部署 osTicket、GLPI 或等效系统
-- [ ] 配置类别、优先级、SLA 和升级矩阵
-- [ ] 发布 10 篇知识库文章
-- [ ] 所有故障通过工单进入
+- [ ] Select and deploy osTicket, GLPI, or an equivalent platform.
+- [ ] Configure categories, priorities, SLA targets, and the escalation matrix.
+- [ ] Publish 10 knowledge base articles.
+- [ ] Route every fault through a ticket.
 
-闸门：工单关闭前包含诊断、根因、解决、验证、预防措施和用户确认。
+Gate: Before closure, every ticket contains diagnosis, root cause, resolution, validation, preventive action, and user confirmation.
 
-### 阶段 4：M365 与远程支持
+### Phase 4: Microsoft 365 and Remote Support
 
-- [ ] 使用合法可用的测试环境，或明确标注为流程模拟
-- [ ] 完成一次云端用户入职与离职流程
-- [ ] 完成至少 5 种 M365 故障工单
-- [ ] 说明 AD、Entra Registered、Joined 与 Hybrid Joined 的差异
+- [ ] Use a legally available test environment or clearly label the work as a process simulation.
+- [ ] Complete one cloud-user onboarding and offboarding workflow.
+- [ ] Complete at least five Microsoft 365 support tickets.
+- [ ] Explain the differences among AD, Entra Registered, Entra Joined, and Hybrid Joined devices.
 
-闸门：能独立讲解账户、许可、MFA、会话撤销和远程访问的完整支持流程。
+Gate: Independently explain the complete account, licensing, MFA, session-revocation, and remote-access support workflow.
 
-### 阶段 5：盲测故障注入
+### Phase 5: Blind Fault Injection
 
-- [ ] 由另一人或随机清单注入未知根因
-- [ ] 不查看答案直接排查
-- [ ] 完成 30 张模拟工单
-- [ ] 选出 5 张最有代表性的案例
+- [ ] Have another person or a randomized list introduce unknown root causes.
+- [ ] Troubleshoot without viewing the answer.
+- [ ] Complete 30 simulated support tickets.
+- [ ] Select the five strongest representative cases.
 
-闸门：每张工单有证据、有影响范围、有用户确认，且高风险事件正确升级。
+Gate: Every ticket includes evidence, impact scope, and user confirmation, while high-risk events are escalated correctly.
 
-### 阶段 6：自动化与作品集
+### Phase 6: Automation and Portfolio Packaging
 
 - [ ] `New-Employee.ps1`
 - [ ] `Disable-Employee.ps1`
 - [ ] `Endpoint-HealthCheck.ps1`
-- [ ] 工单统计、架构图、最终报告、演示视频
-- [ ] 最终检查仓库中不存在敏感信息
+- [ ] Ticket metrics, architecture diagram, final report, and demonstration video
+- [ ] Complete a final repository review for sensitive information
 
-## 推荐节奏
+## Recommended Working Rhythm
 
-每次实验只完成一个可验收的小目标：实施 45–90 分钟，验证 15 分钟，整理工单和证据 20–30 分钟。没有证据整理的配置不算完成。
+Complete one testable objective per lab session: 45-90 minutes for implementation, 15 minutes for validation, and 20-30 minutes for ticket and evidence preparation. A configuration is not complete until its evidence has been organized.
