@@ -4,7 +4,7 @@ A hands-on portfolio project designed for Junior IT Support, Service Desk, and M
 
 ## Current Status
 
-**Phase 1 is in progress. DC01, the Forest and Domain, internal DNS, DHCP, the custom OU hierarchy, 10 Global Security groups, the separate named administrative account, and 20 fictional users have been completed and validated. Windows 11 clients are still pending. Last updated: 2026-07-18.**
+**Phase 1 is in progress. DC01, the Forest and Domain, internal DNS, DHCP, the custom OU hierarchy, 10 Global Security groups, the separate named administrative account, and 20 fictional users have been completed and validated. Two Windows 11 Pro clients, `WIN11-HR01` and `WIN11-SALES01`, have also passed DHCP, DNS, Domain Join, domain sign-in, security-group, Group Policy processing, and Active Directory computer-object checks. `WIN11-REMOTE01` is the remaining Phase 1 client. Last updated: 2026-07-21.**
 
 This repository clearly separates planned work from verified results:
 
@@ -35,7 +35,7 @@ Planned work is never presented as a resume achievement before it has been valid
 
 See [PROJECT-PLAN.md](PROJECT-PLAN.md) for the complete roadmap. The current implementation guide is [phase-1-runbook.md](active-directory/phase-1-runbook.md).
 
-See [progress/CURRENT-STATUS.md](progress/CURRENT-STATUS.md) for the current state, [progress/2026-07-18-progress-log.md](progress/2026-07-18-progress-log.md) for the full dated record, and [progress/2026-07-18-identity-provisioning-milestone.md](progress/2026-07-18-identity-provisioning-milestone.md) for the validated 20-user identity milestone.
+See [progress/CURRENT-STATUS.md](progress/CURRENT-STATUS.md) for the current state, [progress/2026-07-20-progress-log.md](progress/2026-07-20-progress-log.md) for the latest dated record, [progress/2026-07-18-identity-provisioning-milestone.md](progress/2026-07-18-identity-provisioning-milestone.md) for the validated 20-user identity milestone, and [progress/2026-07-21-windows-client-deployment-milestone.md](progress/2026-07-21-windows-client-deployment-milestone.md) for the two-client acceptance milestone.
 
 Use [PROJECT-TODO.md](PROJECT-TODO.md) as the primary progress monitor. It shows completed work with checked and struck-through items, the current focus, and all 30 planned support cases.
 

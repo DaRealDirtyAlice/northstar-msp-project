@@ -3,6 +3,6 @@ NS-SRV-001,DC01,Virtual Server,"AD DS; DNS; DHCP",10.50.10.10,Windows Server 202
 NS-SRV-002,FS01,Virtual Server,File Services,10.50.10.20,Windows Server 2022,2,Planned,Separate data disk preferred
 NS-SRV-003,HELPDESK01,Virtual Server,Ticketing and Knowledge Base,10.50.10.30,TBD,3,Planned,Platform not yet selected
 NS-SRV-004,WAZUH01,Virtual Server,Endpoint Monitoring,10.50.10.40,Linux,Later,Planned,Reuse existing environment if practical
-NS-WS-001,WIN11-HR01,Virtual Workstation,HR Endpoint,DHCP,Windows 11,1,Planned,
-NS-WS-002,WIN11-SALES01,Virtual Workstation,Sales Endpoint,DHCP,Windows 11,1,Planned,
+NS-WS-001,WIN11-HR01,Virtual Workstation,HR Endpoint,10.50.10.100 (DHCP),Windows 11 Pro,1,Validated,"Domain joined; HR user and group token validated; computer object confirmed in Workstations OU"
+NS-WS-002,WIN11-SALES01,Virtual Workstation,Sales Endpoint,10.50.10.101 (DHCP),Windows 11 Pro,1,Validated,"Domain joined; Sales user and group token validated; computer object confirmed in Workstations OU"
 NS-WS-003,WIN11-REMOTE01,Virtual Laptop,Remote Endpoint,DHCP,Windows 11,1,Planned,

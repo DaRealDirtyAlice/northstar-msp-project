@@ -1,11 +1,11 @@
 # Northstar MSP Project To-Do Monitor
 
-Last updated: **2026-07-18**
+Last updated: **2026-07-21**
 
 ## Progress Snapshot
 
 - Project phase: **Phase 1 - Identity and Foundational Networking**
-- Current focus: **Build `WIN11-HR01` on VMnet3**
+- Current focus: **Build and validate `WIN11-REMOTE01` as the third Phase 1 client**
 - Support Cases completed: **0 of 30**
 - Support Cases remaining: **30**
 - Current Case: **None - infrastructure build is still in progress**
@@ -44,11 +44,11 @@ When a Case is complete, use this format:
 - [x] ~~Create the designed security groups.~~
 - [x] ~~Create a separate administrative account.~~
 - [x] ~~Import 20 fictional users.~~
-- [ ] Build `WIN11-HR01` on VMnet3.
-- [ ] Validate its DHCP lease, DNS server, and domain suffix.
-- [ ] Join `WIN11-HR01` to the domain.
-- [ ] Validate domain sign-in and Group Policy processing.
-- [ ] Add and validate `WIN11-SALES01`.
+- [x] ~~Build `WIN11-HR01` on VMnet3.~~
+- [x] ~~Validate its DHCP lease, DNS server, and domain suffix.~~
+- [x] ~~Join `WIN11-HR01` to the domain.~~
+- [x] ~~Validate domain sign-in and Group Policy processing.~~
+- [x] ~~Add and validate `WIN11-SALES01`.~~
 - [ ] Add and validate `WIN11-REMOTE01`.
 - [ ] Complete the Phase 1 acceptance record.
 
